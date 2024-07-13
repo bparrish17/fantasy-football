@@ -16,8 +16,8 @@ module.exports = {
     client: 'pg',
     connection: {
       database: 'fantasy_football',
-      user:     'username',
-      password: 'password'
+      user:     'brianparrish',
+      password: 'Martin1833!'
     },
     pool: {
       min: 2,
@@ -25,6 +25,9 @@ module.exports = {
     },
     migrations: {
       tableName: 'knex_migrations'
+    },
+    seeds: {
+      directory: './seeds'
     }
   },
 
