@@ -5,7 +5,6 @@ const path = require('path');
 
 
 function getFromCsv(name, properties) {
-  console.log(path.join(__dirname, `../data/${name}.csv`))
   return csv()
     .fromFile(path.join(__dirname, `../data/${name}.csv`))
     .then((players) => players.map((player) => _.pick(player, properties)))
@@ -71,31 +70,3 @@ exports.seed = async function(knex) {
   await backfillPlayersByPosition(knex);
   await corrections(knex);
 };
-
-
-
-
-/*
-
-async function getQbs() {
-  return getFromCsv('si_qb_rankings', ['Player', 'Team']).then((qbs) => qbs.map((qb) => {
-    const [first_name, last_name] = qb.Player.split(' ');
-    return { first_name, last_name, position: 'QB', team_id: qb.Team }
-  }))
-}
-
-async function getRbs() {
-  return getFromCsv('si_rb_rankings', ['Player', 'Team']).then((rbs) => rbs.map((rb) => {
-    const [first_name, last_name] = rb.Player.split(' ');
-    return { first_name, last_name, position: 'RB', team_id: rb.Team }
-  }))
-}
-
-async function getWrs() {
-  return getFromCsv('si_wr_rankings', ['Player', 'Team']).then((wrs) => wrs.map((wr) => {
-    const [first_name, last_name] = wr.Player.split(' ');
-    return { first_name, last_name, position: 'WR', team_id: wr.Team }
-  }))
-}
-  
-*/
