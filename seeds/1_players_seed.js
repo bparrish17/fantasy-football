@@ -2,16 +2,16 @@ const csv = require('csvtojson')
 const fs = require('fs');
 const _ = require('lodash');
 const path = require('path');
+const { getFromCsv } = require('../utils/helpers');
 
+function getPlayersFromCSV(position) {
+  return getFromCsv(`si_${position}_rankings`, ['Player', 'Team'])
+  .then((players) => players.map((player) => _.pick(player, properties)))
 
-function getFromCsv(name, properties) {
-  return csv()
-    .fromFile(path.join(__dirname, `../data/${name}.csv`))
-    .then((players) => players.map((player) => _.pick(player, properties)))
 }
 
 async function getPositionGroup(position) {
-  return getFromCsv(`si_${position}_rankings`, ['Player', 'Team']).then((players) => players.map((plyr) => {
+  return getPlayersFromCSV(position).then((players) => players.map((plyr) => {
     const [last_name, ...first_name] = plyr.Player.split(' ').reverse();
     return { first_name: `${first_name.reverse().join(' ')}`, last_name, position: position.toUpperCase(), team_id: plyr.Team }
   }))

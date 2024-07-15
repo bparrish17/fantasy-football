@@ -1,0 +1,37 @@
+/**
+ * @param { import("knex").Knex } knex
+ * @returns { Promise<void> } 
+ */
+exports.seed = async function(knex) {
+  await knex('players').where({ first_name: 'Baker', last_name: 'Mayfield' }).update({ x_pass_yards: 3650.5  })
+  await knex('players').where({ first_name: 'Derek', last_name: 'Carr' }).update({ x_pass_yards: 3375.5  })
+  await knex('players').where({ first_name: 'Matthew', last_name: 'Stafford' }).update({ x_pass_yards: 3900.5  })
+  await knex('players').where({ first_name: 'Kirk', last_name: 'Cousins' }).update({ x_pass_yards: 3925.5  })
+  await knex('players').where({ first_name: 'Daniel', last_name: 'Jones' }).update({ x_pass_yards: 2688  })
+  await knex('players').where({ first_name: 'Kyler', last_name: 'Murray' }).update({ x_pass_yards: 3400.5  })
+  await knex('players').where({ first_name: 'Brock', last_name: 'Purdy' }).update({ x_pass_yards: 3900.5  })
+  await knex('players').where({ first_name: 'Jalen', last_name: 'Hurts' }).update({ x_pass_yards: 3598  })
+  await knex('players').where({ first_name: 'Dak', last_name: 'Prescott' }).update({ x_pass_yards: 4150.5  })
+  await knex('players').where({ first_name: 'Anthony', last_name: 'Richardson' }).update({ x_pass_yards: 3200.5  })
+  await knex('players').where({ first_name: 'Aaron', last_name: 'Rodgers' }).update({ x_pass_yards: 3775.5  })
+  await knex('players').where({ first_name: 'Drake', last_name: 'Maye' }).update({ x_pass_yards: 2400.5  })
+  await knex('players').where({ first_name: 'Bo', last_name: 'Nix' }).update({ x_pass_yards: 2863  })
+  await knex('players').where({ first_name: 'Josh', last_name: 'Allen' }).update({  x_pass_yards: 3750.5  })
+  await knex('players').where({ first_name: 'Bryce', last_name: 'Young' }).update({ x_pass_yards: 3200.5  })
+  await knex('players').where({ first_name: 'Lamar', last_name: 'Jackson' }).update({ x_pass_yards: 3250.5  })
+  await knex('players').where({ first_name: 'Jared', last_name: 'Goff' }).update({ x_pass_yards: 4025.5  })
+  await knex('players').where({ first_name: 'Deshaun', last_name: 'Watson' }).update({ x_pass_yards: 3325.5  })
+  await knex('players').where({ first_name: 'Tua', last_name: 'Tagovailoa' }).update({  x_pass_yards: 4075.5  })
+  await knex('players').where({ first_name: 'Patrick', last_name: 'Mahomes' }).update({  x_pass_yards: 4295.5  })
+  await knex('players').where({ first_name: 'Caleb', last_name: 'Williams' }).update({  x_pass_yards: 3488  })
+  await knex('players').where({ first_name: 'Joe', last_name: 'Burrow' }).update({x_pass_yards: 4000.5  })
+  await knex('players').where({ last_name: 'McCarthy' }).update({ x_pass_yards: 2800.5  })
+  await knex('players').where({ first_name: 'Geno', last_name: 'Smith' }).update({ x_pass_yards: 3450.5  })
+  await knex('players').where({ first_name: 'Russell', last_name: 'Wilson' }).update({ x_pass_yards: 2750.5  })
+  await knex('players').where({ first_name: 'Will', last_name: 'Levis' }).update({ x_pass_yards: 3413  })
+  await knex('players').where({ first_name: 'Jordan', last_name: 'Love' }).update({  x_pass_yards: 3875.5  })
+  await knex('players').where({ first_name: 'Trevor', last_name: 'Lawrence' }).update({  x_pass_yards: 3788  })
+  await knex('players').where({ first_name: 'Justin', last_name: 'Herbert' }).update({  x_pass_yards: 3600.5  })
+  await knex('players').where({ last_name: 'Stroud' }).update({ x_pass_yards: 4150.5  })
+  await knex('players').where({ first_name: 'Jayden', last_name: 'Daniels' }).update({ x_pass_yards: 3150.5  })
+};
