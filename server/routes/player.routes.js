@@ -5,7 +5,7 @@ const router = express.Router();
 
 router.get("/players", async (req, res) => {
   try {
-    const players = await db.select("*").from("players");
+    const players = await db.select("*").from("players").orderBy('id', 'asc');
     res.send(players);
   } catch (error) {
     res.status(500).json({ error: error.message });
@@ -14,7 +14,7 @@ router.get("/players", async (req, res) => {
 
 router.get("/players/:id", async (req, res) => {
   try {
-    const player = await db.select("*").from("players").where('id', req.params.id);
+    const player = (await db.select("*").from("players").where('id', req.params.id));
     res.send(player);
   } catch (error) {
     res.status(500).json({ error: error.message });
