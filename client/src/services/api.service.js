@@ -4,18 +4,21 @@ import axios from "axios";
 export function bootstrapAxios() {
 }
 
-export async function search({ model, body, includeTotal = true }) {
-  return Axios({
+export async function search({ model, body }) {
+  console.log('here,', model, body)
+  return axios({
     method: 'POST',
     url: `/${model}/search`,
     data: body
-  }).then((res) => (includeTotal ? res?.data : res?.data?.data));
+  }).then((res) => res?.data);
 }
 
 export const usePlayers = (body, queryOptions = {}) => {
   return useQuery({
     queryKey: ['players', body],
-    queryFn: () => axios({ method: 'GET', url: `/players`, data: body }).then((res) => res?.data),
+    queryFn: async () => {
+      return search({ model: 'players', body })
+    },
     ...queryOptions
   });
 };
